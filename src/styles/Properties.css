@@ -1,0 +1,7 @@
+.Properties {
+    margin-left: 160px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

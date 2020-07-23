@@ -1,0 +1,19 @@
+.home-page {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-image: url("images/houses-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.home-page h2 {
+    font-size: 100px;
+    text-align: center;
+}
+
+.home-page p {
+    font-size: xx-large;
+    text-align: center;
+}

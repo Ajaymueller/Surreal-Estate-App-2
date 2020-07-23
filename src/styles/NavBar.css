@@ -1,0 +1,32 @@
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+  .navbar-logo {
+    max-width: 200px;
+    flex: 0 1 auto;
+  }
+  
+  .navbar-links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+  
+  .navbar-links-item {
+    margin: 0;
+    padding: 24px;
+    display: inline-block;
+  }
+  
+  .navbar-links-item > * {
+    text-decoration: none;
+  }

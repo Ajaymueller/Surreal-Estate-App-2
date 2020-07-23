@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    justify-content: center;
+
+    margin: 0px;
+    padding-left: 20px;
+    
+    background-color: var(--tertiary-dark-color);
+    border-top: 1px solid var(--tertiary-dark-color);
+
+}
+
+.footer_content {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.footer li {
+    font-size: larger;
+    font-weight: bold;
+}

@@ -1,0 +1,55 @@
+.PropertyCard {
+    flex: 0 1 225px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    margin: 10px;
+    font-family: "Open Sans"; 
+    max-height: 500px;
+    border: 5px solid white;
+    box-sizing: border-box;
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #f1f1f1;
+    color:#262626;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+
+a:hover {
+    color: green
+}
+
+logo {
+    font-size: 75px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.bathroom {
+    margin: 10px;
+    padding: 5px;
+    font-size: larger;
+}
+
+.bedroom {
+    margin: 10px;
+    padding: 5px;
+    font-size: larger;
+}
+
+.price {
+    margin: 10px;
+    padding: 5px;
+    font-size: larger;
+}
+
+.email {
+    font-size: larger;
+    margin: 10px;
+    padding: 5px;
+}
