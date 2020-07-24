@@ -23,7 +23,7 @@ const Properties = ({ userID }) => {
     saveFavourite(propertyId, userID, setAlert);
 
   return (
-    <div>
+    <div className="properties">
       <Sidebar />
       <div className="Properties">
       {properties.map((property) => (
