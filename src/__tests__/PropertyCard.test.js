@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, getAllByTestId } from '@testing-library/react';
 import PropertyCard from '../Components/PropertyCard';
 import { MemoryRouter } from 'react-router-dom';
 import "@testing-library/jest-dom/extend-expect";
@@ -7,6 +7,7 @@ import "@testing-library/jest-dom/extend-expect";
 const props = {
     title: "randomTitle", 
     type:"Semi-Detached", 
+    city: "Manchester", 
     bathrooms: 3, 
     bedrooms: 4, 
     price: 200000, 
@@ -46,4 +47,17 @@ describe("PropertyCard", () => {
     fireEvent.click(getByRole("button"));
     expect(onSaveProperty).toHaveBeenCalled();
     });
+});
+
+describe("fields", () => {
+    it("displays a title", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const title = getByTestId("title-id");
+    expect(title.textContent).toBe("randomTitle");
+    });
+    it("displays a type with a location", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const typeAndCity = getByTestId("type-city");
+    expect(typeAndCity.textContent).toBe("Semi-Detached - Manchester");
+    })
 });
