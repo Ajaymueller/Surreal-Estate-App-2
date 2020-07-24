@@ -26,8 +26,12 @@ const PropertyCard = ({
     <div className="PropertyCard">
       <logo><FontAwesomeIcon icon={faHome} /></logo>
       <header>
-        <h2>{title}</h2>
-        <h3>{`${type} - ${city}`}</h3>
+        <h2 data-testid="title-id" className="title">
+          {title}
+          </h2>
+        <h3 data-testid="type-city" className="type-city">
+          {`${type} - ${city}`}
+          </h3>
         {userID && (
           <button type="button" onClick={() => onSaveProperty(_id)}>
             Save
@@ -35,12 +39,19 @@ const PropertyCard = ({
         )}
       </header>
       <section>
-        <div className="bathroom"><FontAwesomeIcon icon={faBath} /> {`${bathrooms}`}</div>
-        <div className="bedroom"><FontAwesomeIcon icon={faBed} /> {`${bedrooms}`}</div>
-        <div className="price"><FontAwesomeIcon icon={faPoundSign} /> {` ${price}`}</div>
+        <div className="bathroom" data-testid="bathroom-id">
+          <FontAwesomeIcon icon={faBath} /> 
+          {`${bathrooms}`}</div>
+        <div className="bedroom" data-testid="bedroom-id">
+          <FontAwesomeIcon icon={faBed} /> 
+          {`${bedrooms}`}</div>
+        <div className="price" data-testid="price-id">
+          <FontAwesomeIcon icon={faPoundSign} /> 
+          {` ${price}`}</div>
       </section>
-      <footer className="email">
-        <FontAwesomeIcon icon={faEnvelope} /> <a href={`mailto:${email}`}>Email for details</a>
+      <footer className="email" data-testid="email-id">
+        <FontAwesomeIcon icon={faEnvelope} /> 
+        <a href={`mailto:${email}`}>Email for details</a>
       </footer>
     </div>
   );
