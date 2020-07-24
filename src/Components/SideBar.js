@@ -37,7 +37,7 @@ const SideBar = () => {
         <h3>Filter By</h3>
         {cities.map((city) => (
           <Link key={city} to={buildQueryString("query", { city }, search)}>
-            <li>{city}</li>
+            <li data-testid="city-option">{city}</li>
           </Link>
         ))}
       </div>

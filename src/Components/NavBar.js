@@ -5,7 +5,7 @@ import FacebookLogin from "react-facebook-login";
 import "../styles/NavBar.css";
 
 const LogoutButton = ({ onLogout }) => (
-  <button type="button" onClick={onLogout}>
+  <button type="button" onClick={onLogout} data-testid="sign-out">
     Logout
   </button>
 );
@@ -19,13 +19,13 @@ const NavBar = ({ onLogin, onLogout, userID }) => (
     /> </Link>
     <ul className="navbar-links">
       <li className="navbar-links-item">
-        <Link to="/properties">View Properties</Link>
+        <Link to="/properties" data-testid="view-properties-id">View Properties</Link>
       </li>
       <li className="navbar-links-item">
         <Link to="/saved-properties">Saved Properties</Link>
       </li>
       <li className="navbar-links-item">
-        <Link to="/add-property">Add Property</Link>
+        <Link to="/add-property" data-testid="add-property-id">Add Property</Link>
       </li>
       {!userID ? (
         <FacebookLogin

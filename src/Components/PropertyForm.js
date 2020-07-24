@@ -10,7 +10,8 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
     email, } ) => {
     return (
         <div>
-        <form onSubmit={handleAddProperty}>
+        <form onSubmit={handleAddProperty} 
+        data-testid="property-form">
     <div className="add-property-field">
       <label htmlFor="title">
         Title
@@ -21,6 +22,8 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           placeholder="Property tagline"
           value={title}
           onChange={handleFieldChange}
+          data-testid="title"
+
         />
       </label>
     </div>
@@ -32,6 +35,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           name="city"
           value={city}
           onChange={handleFieldChange}
+          data-testid="city"
         >
           <option value="Manchester">Manchester</option>
           <option value="Leeds">Leeds</option>
@@ -48,6 +52,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           name="type"
           value={type}
           onChange={handleFieldChange}
+          data-testid="type"
         >
           <option value="Flat">Flat</option>
           <option value="Detached">Detached</option>
@@ -68,6 +73,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           type="number"
           value={price}
           onChange={handleFieldChange}
+          data-testid="price"
         />
       </label>
     </div>
@@ -80,6 +86,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           type="number"
           value={bedrooms}
           onChange={handleFieldChange}
+          data-testid="bedrooms"
         />
       </label>
     </div>
@@ -92,6 +99,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           type="number"
           value={bathrooms}
           onChange={handleFieldChange}
+          data-testid="bathrooms"
         />
       </label>
     </div>
@@ -105,6 +113,7 @@ const PropertyForm = ({ handleAddProperty, handleFieldChange, title,
           type="email"
           value={email}
           onChange={handleFieldChange}
+          data-testid="email"
         />
       </label>
     </div>
