@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import "../styles/App.css";
 
 import NavBar from "./NavBar";
@@ -21,6 +21,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBar onLogin={handleLogin} onLogout={handleLogout} userID={userID} />
+      <BrowserRouter>
       <Switch>
       <Route
           path="/"
@@ -39,6 +40,7 @@ const App = () => {
         />
         <Route path="/add-property" component={AddProperty} exact />
       </Switch>
+      </BrowserRouter>
       <Footer />
     </div>
   );
