@@ -75,10 +75,10 @@ describe("fields", () => {
     const price = getByTestId("price-id");
     expect(price.textContent).toBe("200000");
     });
-    xit("can send an email", () => {
-    const { findByText } = render(<PropertyCard {...props} />);
-    const email = findByText("Email for details");
-    expect(email.closest("a").href).toBe(`mailto:${email}`)
+    it("displays an email", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const email = getByTestId("email-id");
+    expect(email).toBeInTheDocument();
     })
     it("can send an email", () => {
     const { getByTestId } = render(<PropertyCard {...props} />);
