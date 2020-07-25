@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, getAllByTestId } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import PropertyCard from '../Components/PropertyCard';
 import { MemoryRouter } from 'react-router-dom';
 import "@testing-library/jest-dom/extend-expect";
@@ -8,12 +8,12 @@ const props = {
     title: "randomTitle", 
     type:"Semi-Detached", 
     city: "Manchester", 
-    bathrooms: 3, 
-    bedrooms: 4, 
-    price: 200000, 
+    bathrooms: "3", 
+    bedrooms: "4", 
+    price: "200000", 
     email: "random@email.com",
     _id: "id",
-    userID: 12345, 
+    userID: "12345", 
     onSaveProperty: jest.fn(),
 };
 
@@ -59,5 +59,30 @@ describe("fields", () => {
     const { getByTestId } = render(<PropertyCard {...props} />);
     const typeAndCity = getByTestId("type-city");
     expect(typeAndCity.textContent).toBe("Semi-Detached - Manchester");
+    });
+    it("displays a number of bathrooms", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const bathrooms = getByTestId("bathroom-id");
+    expect(bathrooms.textContent).toBe("3");
+    });
+    it("displays a number of bedrooms", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const bedrooms = getByTestId("bedroom-id");
+    expect(bedrooms.textContent).toBe("4");
+    });
+    it("displays a price", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const price = getByTestId("price-id");
+    expect(price.textContent).toBe("200000");
+    });
+    xit("can send an email", () => {
+    const { findByText } = render(<PropertyCard {...props} />);
+    const email = findByText("Email for details");
+    expect(email.closest("a").href).toBe(`mailto:${email}`)
     })
+    it("can send an email", () => {
+    const { getByTestId } = render(<PropertyCard {...props} />);
+    const email = getByTestId("Email");
+    expect(email.href).toBe(`mailto:random@email.com`)
+    });
 });

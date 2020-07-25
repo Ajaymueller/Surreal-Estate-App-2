@@ -47,11 +47,11 @@ const PropertyCard = ({
           {`${bedrooms}`}</div>
         <div className="price" data-testid="price-id">
           <FontAwesomeIcon icon={faPoundSign} /> 
-          {` ${price}`}</div>
+          {`${price}`}</div>
       </section>
       <footer className="email" data-testid="email-id">
         <FontAwesomeIcon icon={faEnvelope} /> 
-        <a href={`mailto:${email}`}>Email for details</a>
+        <a href={`mailto:${email}`} data-testid="Email">Email for details</a>
       </footer>
     </div>
   );
