@@ -4,12 +4,13 @@ import App from '../Components/App';
 import Properties from '../Components/Properties';
 import AddProperty from '../Components/AddProperty'; 
 import { MemoryRouter } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import HomePage from '../Components/HomePage';
 //import { faItalic } from '@fortawesome/free-solid-svg-icons';
 Enzyme.configure({ adapter: new Adapter() });
+import { createMemoryHistory } from 'history'
 
 jest.mock("react-facebook-login", () =>
   jest.fn(() => <div>Facebook login</div>)
@@ -29,10 +30,21 @@ describe("With React router", () => {
     <MemoryRouter><App /></MemoryRouter> )
     fireEvent.click(getByText("View Properties"));
     fireEvent.click(getByText("Add Property"));
-    expect(getByTestId("properties")).toBeInTheDocument();
+    expect(getByTestId("Properties")).toBeInTheDocument();
     expect(getByTestId("addProperty")).toBeInTheDocument();
     });
 });
+
+const renderWithRouter = (component) => {
+    const history = createMemoryHistory()
+    return { 
+    ...render (
+    <Router history={history}>
+        {component}
+    </Router>
+    )
+  }
+}
 
 describe("routes using memory router", () => {
     xit("should load HomePage component for / route", () => {
@@ -49,5 +61,12 @@ describe("routes using memory router", () => {
     const component = mount ( <MemoryRouter initialentries="{['/add-property']}">
     <App/> </MemoryRouter> )
     expect(component.find(AddProperty)).toHaveLength(1);
-    })
-})
+    });
+    xit("should render properties component", () => {
+        const { container, getByTestId } = 
+        renderWithRouter(<App />) 
+        const properties = getByTestId("Properties")
+        const app = getAllByTestId("App");
+        expect(app).toContainElement(properties);
+    });
+});

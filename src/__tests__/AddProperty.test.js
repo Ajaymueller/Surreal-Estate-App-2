@@ -10,7 +10,7 @@ describe("AddProperty", () => {
         <MemoryRouter><AddProperty /></MemoryRouter> )
         expect(asFragment).toMatchSnapshot();
     });
-    it("returns a div with PropertyForm and Alert component", () => {
+    it("renders a div with PropertyForm component", () => {
         const { getByTestId } = render (
         <MemoryRouter><AddProperty /></MemoryRouter> )
         const propertyForm = getByTestId("addProperty");

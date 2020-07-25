@@ -11,7 +11,7 @@ const LogoutButton = ({ onLogout }) => (
 );
 
 const NavBar = ({ onLogin, onLogout, userID }) => (
-  <div className="navbar">
+  <div className="navbar" data-testid="navbar">
     <Link to="/"><img
       className="navbar-logo"
       src="https://mcrcodes.s3.eu-west-2.amazonaws.com/course/surreal-estate/logo.png"
@@ -19,13 +19,16 @@ const NavBar = ({ onLogin, onLogout, userID }) => (
     /> </Link>
     <ul className="navbar-links">
       <li className="navbar-links-item">
-        <Link to="/properties" data-testid="view-properties-id">View Properties</Link>
+        <Link to="/properties" data-testid="view-properties-id">
+          View Properties</Link>
       </li>
       <li className="navbar-links-item">
-        <Link to="/saved-properties">Saved Properties</Link>
+        <Link to="/saved-properties" data-testid="saved-properties">
+          Saved Properties</Link>
       </li>
       <li className="navbar-links-item">
-        <Link to="/add-property" data-testid="add-property-id">Add Property</Link>
+        <Link to="/add-property" data-testid="add-property-id">
+          Add Property</Link>
       </li>
       {!userID ? (
         <FacebookLogin

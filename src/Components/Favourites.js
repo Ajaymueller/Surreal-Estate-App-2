@@ -17,12 +17,12 @@ const Favourites = ({ userID }) => {
     }
   }, [favourites]);
 
-  //   useEffect(() => {
-  //     if (!userID) {
-  //       setFavourites([]);
-  //       setAlert({ message: "No user logged in", isSuccess: false });
-  //     }
-  //   }, [userID]);
+  useEffect(() => {
+      if (!userID) {
+         setFavourites([]);
+         setAlert({ message: "No user logged in", isSuccess: false });
+       }
+     }, [userID]);
 
   const handleDelete = (id) => deleteFavourite(id, setAlert);
 
