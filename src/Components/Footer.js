@@ -5,7 +5,8 @@ const Footer = () => {
     return (
         <div className="footer">
             <ul className="footer_content">
-                <li className="footer__item">Aidan Mueller, 2020</li>
+                <li className="footer__item" data-testid="footer-id">
+                    Aidan Mueller, 2020</li>
             </ul>
         </div>
     );
