@@ -7,9 +7,15 @@ import '@testing-library/jest-dom/extend-expect';
 const props = { userId: 12345 }
 
 describe("properties", () => {
-    xit("component renders with correct props", () => {
+    it("component renders with correct props", () => {
         const { asFragement } = render( 
         <MemoryRouter><Properties {...props} /></MemoryRouter>)
         expect(asFragement).toMatchSnapshot();
+    });
+    it("renders properties div", () => {
+        const { getByTestId } = render( 
+        <MemoryRouter><Properties {...props} /></MemoryRouter>)
+        const propertiesDiv = getByTestId("Properties");
+        expect(propertiesDiv).toBeInTheDocument();
     });
 });
