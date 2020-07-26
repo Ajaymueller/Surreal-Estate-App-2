@@ -33,5 +33,11 @@ describe("SideBar", () => {
     expect(ascending).toBeInTheDocument();
     expect(descending).toBeInTheDocument();
     })
+    it("contains 6 link elements", () => {
+    const { getAllByRole } = render(
+    <MemoryRouter><SideBar /></MemoryRouter>)
+    const links = getAllByRole("link");
+    expect(links).toHaveLength(6);
+    });
 });
 
