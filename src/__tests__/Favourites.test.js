@@ -14,4 +14,10 @@ describe("Favourites", () => {
         <MemoryRouter><Favourites {...props}/></MemoryRouter> )
         expect(asFragment).toMatchSnapshot();
     });
+    it("renders a div", () => {
+        const { getByTestId } = render (
+        <MemoryRouter><Favourites {...props}/></MemoryRouter> )
+        const favouritesDiv = getByTestId("favourites");
+        expect(favouritesDiv).toBeInTheDocument();
+    });
 });

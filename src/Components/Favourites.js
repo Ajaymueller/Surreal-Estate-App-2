@@ -27,7 +27,7 @@ const Favourites = ({ userID }) => {
   const handleDelete = (id) => deleteFavourite(id, setAlert);
 
   return (
-    <div>
+    <div className="favourites" data-testid="favourites">
       <Alert message={alert.message} isSuccess={alert.isSuccess} />
       {favourites.map(({ _id, propertyListing }) => (
         <div key={`${propertyListing._id}${_id}`}>
