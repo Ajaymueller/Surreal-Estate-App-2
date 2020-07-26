@@ -24,7 +24,7 @@ describe("App", () => {
 });
 
 describe("With React router", () => {
-    xit("renders Properties and AddProperty component", () => {
+    xit("renders Properties and AddProperty component", () => { //doesn't pass!!
     const { getByText, getByTestId } = render(
     <MemoryRouter><App /></MemoryRouter> )
     fireEvent.click(getByText("View Properties"));
@@ -46,26 +46,32 @@ const renderWithRouter = (component) => {
 }
 
 describe("routes using memory router", () => {
-    xit("should load HomePage component for / route", () => {
+    it("should load HomePage component for / route", () => {
     const component = mount ( <MemoryRouter initialentries="{['/']}">
     <App/> </MemoryRouter>)
     expect(component.find(HomePage)).toHaveLength(1);
     })
-    xit("should show properties component for /properties route", () => {
+    xit("should show properties component for /properties route", () => { // doesn't pass!!
     const component = mount ( <MemoryRouter initialentries="{['/properties']}">
     <App/> </MemoryRouter> )
     expect(component.find(Properties)).toHaveLength(1);
     });
-    xit("should show AddProperty component for /add-property", () => {
+    xit("should show AddProperty component for /add-property", () => { // doesn't pass!!
     const component = mount ( <MemoryRouter initialentries="{['/add-property']}">
     <App/> </MemoryRouter> )
     expect(component.find(AddProperty)).toHaveLength(1);
     });
-    xit("should render properties component", () => {
+    it("should render properties component", () => { // doesn't pass!! 
     const { container, getByTestId } = 
     renderWithRouter(<App />) 
     const properties = getByTestId("Properties")
     const app = getAllByTestId("App");
     expect(app).toContainElement(properties);
+    });
+    xit("should contain 3 routes", () => { // doesn't pass!!
+    const { getAllByRole } = render(
+    <MemoryRouter><App /></MemoryRouter> )
+    const routes = getAllByRole("href");
+    expect(routes).toHaveLength(4);
     });
 });
