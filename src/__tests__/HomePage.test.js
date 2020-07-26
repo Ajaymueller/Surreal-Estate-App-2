@@ -10,4 +10,16 @@ describe("HomePage", () => {
     <MemoryRouter><HomePage /></MemoryRouter> )
     expect(asFragment).toMatchSnapshot();
     });
+    it("renders a homePage div", () => {
+    const { getByTestId } = render(
+    <MemoryRouter><HomePage /></MemoryRouter> )
+    const homePageDiv = getByTestId("home-page");
+    expect(homePageDiv).toBeInTheDocument()
+    });
+    it("renders a heading wih welcome message", () => {
+    const { getByText } = render(
+    <MemoryRouter><HomePage /></MemoryRouter> )
+    const heading = getByText("Make your dream home a reality")
+    expect(heading).toBeInTheDocument();
+    });
 });
