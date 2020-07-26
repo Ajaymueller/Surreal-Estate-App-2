@@ -59,7 +59,7 @@ describe("NavBar", () => {
 });
 
 describe("with router", () => {
-    xit("should navigate to view properties page with /properties", () => {
+    xit("should navigate to view properties page with /properties", () => { // doesn't pass!!
         const { getByTestId, getByText } = 
         render( 
         <MemoryRouter><NavBar {...props} /></MemoryRouter>)
@@ -68,7 +68,7 @@ describe("with router", () => {
         expect(viewProperties).toBeInTheDocument();
         expect(viewProperties).toHaveAttribute("href", "/properties");
     });
-    xit("should navigate to Add properties page with /add-property", () => {
+    xit("should navigate to Add properties page with /add-property", () => { // doesn't pass!!
         const { getByTestId, getByText } = 
         render( 
         <MemoryRouter><NavBar {...props} /></MemoryRouter>)
@@ -101,7 +101,7 @@ describe("with router", () => {
         expect(container.innerHTML).toMatch('Add Property')
         expect(navbar).toContainElement(link)
     });
-    xit("should navigate to Properties page", () => {
+    xit("should navigate to Properties page", () => { // doesn't pass!!
         const { container, getByTestId } = 
         renderWithRouter(<NavBar {...props} />)
         const propertiesPage = getByTestId("addProperty")
@@ -114,7 +114,7 @@ describe("with router", () => {
         const links = getAllByRole("link");
         expect(links).toHaveLength(4);
     });
-    xit('"View Properties" link points to the correct page', () => {
+    xit('"View Properties" link points to the correct page', () => { //doesn't pass!!
         const { getByRole, getByTestId } = render( <MemoryRouter>
         <NavBar {...props} /> </MemoryRouter> )
         const link = getByRole('link', { name: /View Properties/i });
