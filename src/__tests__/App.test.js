@@ -8,7 +8,6 @@ import { Route, Router } from 'react-router-dom';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import HomePage from '../Components/HomePage';
-//import { faItalic } from '@fortawesome/free-solid-svg-icons';
 Enzyme.configure({ adapter: new Adapter() });
 import { createMemoryHistory } from 'history'
 
@@ -63,10 +62,10 @@ describe("routes using memory router", () => {
     expect(component.find(AddProperty)).toHaveLength(1);
     });
     xit("should render properties component", () => {
-        const { container, getByTestId } = 
-        renderWithRouter(<App />) 
-        const properties = getByTestId("Properties")
-        const app = getAllByTestId("App");
-        expect(app).toContainElement(properties);
+    const { container, getByTestId } = 
+    renderWithRouter(<App />) 
+    const properties = getByTestId("Properties")
+    const app = getAllByTestId("App");
+    expect(app).toContainElement(properties);
     });
 });

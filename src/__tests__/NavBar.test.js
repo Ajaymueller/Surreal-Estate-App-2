@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, userEvent } from '@testing-library/react';
 import NavBar from '../Components/NavBar';
 import Properties from '../Components/Properties';
 import addProperty from '../Components/AddProperty';
@@ -107,5 +107,18 @@ describe("with router", () => {
         const propertiesPage = getByTestId("addProperty")
         fireEvent.click(getByTestId("view-properties-id"));
         expect(container.innerHTML).toMatch(propertiesPage);
+    });
+    it("should contain 3 links", () => {
+        const { getAllByRole } = render( <MemoryRouter>
+        <NavBar {...props} /> </MemoryRouter> )
+        const links = getAllByRole("link");
+        expect(links).toHaveLength(4);
+    });
+    xit('"View Properties" link points to the correct page', () => {
+        const { getByRole, getByTestId } = render( <MemoryRouter>
+        <NavBar {...props} /> </MemoryRouter> )
+        const link = getByRole('link', { name: /View Properties/i });
+        fireEvent.click(link);
+        expect(getByTestId("Properties")).toBeInTheDocument();
     });
 });

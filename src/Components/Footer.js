@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="footer">
             <ul className="footer_content">
                 <li className="footer__item" data-testid="footer-id">
-                    Aidan Mueller, 2020</li>
+                Aidan Mueller, 2020</li>
             </ul>
         </div>
     );

@@ -10,6 +10,8 @@ import "../styles/Properties.css";
 const Properties = ({ userID }) => {
   const [properties, setProperties] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  //const [loading, setLoading] = useState(initialState.loading);
+
   useEffect(() => {
     getProperties(setProperties, setAlert);
   }, []);
