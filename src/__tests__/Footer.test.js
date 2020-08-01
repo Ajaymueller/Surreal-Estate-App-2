@@ -16,5 +16,5 @@ describe("footer", () => {
     const li = getByTestId("footer-id");
     expect(li).toBeInTheDocument();
     expect(li.innerHTML).toBe("Aidan Mueller, 2020");
-    })
+    });
 });

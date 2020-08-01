@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import App from '../Components/App';
-import Properties from '../Components/Properties';
+
 import AddProperty from '../Components/AddProperty'; 
 import { MemoryRouter } from 'react-router-dom';
 import { Route, Router } from 'react-router-dom';
@@ -10,6 +10,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import HomePage from '../Components/HomePage';
 Enzyme.configure({ adapter: new Adapter() });
 import { createMemoryHistory } from 'history'
+import Properties from '../Components/Properties';
 
 jest.mock("react-facebook-login", () =>
   jest.fn(() => <div>Facebook login</div>)
@@ -24,13 +25,29 @@ describe("App", () => {
 });
 
 describe("With React router", () => {
-    xit("renders Properties and AddProperty component", () => { //doesn't pass!!
+    it("renders HomePage component", () => {
     const { getByText, getByTestId } = render(
     <MemoryRouter><App /></MemoryRouter> )
     fireEvent.click(getByText("View Properties"));
-    fireEvent.click(getByText("Add Property"));
+    expect(getByTestId("HomePage")).toBeInTheDocument();
+    })
+    it("renders Properties component", () => { //doesn't pass!!
+    const { getByText, getByTestId } = render(
+    <MemoryRouter><App /></MemoryRouter> )
+    fireEvent.click(getByText("View Properties"));
     expect(getByTestId("Properties")).toBeInTheDocument();
+    });
+    it("renders AddProperty component", () => { //doesn't pass!!
+    const { getByText, getByTestId } = render(
+    <MemoryRouter><App /></MemoryRouter> )
+    fireEvent.click(getByText("Add Property"));
     expect(getByTestId("addProperty")).toBeInTheDocument();
+    });
+    xit("should contain 3 routes", () => { // doesn't pass!!
+    const { getAllByRole } = render(
+    <MemoryRouter><App /></MemoryRouter> )
+    const routes = getAllByRole("href");
+    expect(routes).toHaveLength(4);
     });
 });
 
@@ -46,7 +63,7 @@ const renderWithRouter = (component) => {
 }
 
 describe("routes using memory router", () => {
-    it("should load HomePage component for / route", () => {
+    xit("should load HomePage component for / route", () => {
     const component = mount ( <MemoryRouter initialentries="{['/']}">
     <App/> </MemoryRouter>)
     expect(component.find(HomePage)).toHaveLength(1);
@@ -67,11 +84,5 @@ describe("routes using memory router", () => {
     const properties = getByTestId("Properties")
     const app = getAllByTestId("App");
     expect(app).toContainElement(properties);
-    });
-    xit("should contain 3 routes", () => { // doesn't pass!!
-    const { getAllByRole } = render(
-    <MemoryRouter><App /></MemoryRouter> )
-    const routes = getAllByRole("href");
-    expect(routes).toHaveLength(4);
     });
 });
