@@ -36,7 +36,7 @@ describe("App", () => {
 });
 
 describe("With React router", () => {
-    xit("renders HomePage component", () => {
+    it("renders HomePage component", () => {
     const { getByText, getByTestId } = render(
     <MemoryRouter><App /></MemoryRouter> )
     fireEvent.click(getByText("View Properties"));
